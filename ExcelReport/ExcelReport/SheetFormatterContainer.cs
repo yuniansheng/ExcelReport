@@ -19,6 +19,7 @@ namespace ExcelReport
         public string SheetName
         {
             get { return sheetName; }
+            protected set { sheetName = value; }
         }
 
         private IEnumerable<ElementFormatter> formatters;
@@ -26,6 +27,7 @@ namespace ExcelReport
         public IEnumerable<ElementFormatter> Formatters
         {
             get { return formatters; }
+            protected set { formatters = value; }
         }
 
         #endregion 成员字段及属性

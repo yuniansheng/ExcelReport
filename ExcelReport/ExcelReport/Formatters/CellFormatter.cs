@@ -29,6 +29,8 @@ namespace ExcelReport
 
         #endregion 成员字段及属性
 
+        public CellFormatter(Parameter parameter, object value) : this(parameter.CellPoint, value) { }
+
         /// 构造函数
         /// <param name="cellPoint"></param>
         /// <param name="value"></param>

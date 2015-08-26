@@ -11,7 +11,7 @@ using NPOI.SS.UserModel;
 
 namespace ExcelReport
 {
-    public class PartFormatter:ElementFormatter
+    public class PartFormatter : ElementFormatter
     {
         #region 成员字段
         private Point _cellPoint;
@@ -36,11 +36,13 @@ namespace ExcelReport
         }
         #endregion
 
+        public PartFormatter(Parameter parameter, string value) : this(parameter.CellPoint, parameter.ParameterName, value) { }
+
         /// 构造函数
         /// <param name="cellPoint"></param>
         /// <param name="parameterName"></param>
         /// <param name="value"></param>
-        public PartFormatter(Point cellPoint, string parameterName ,string value)
+        public PartFormatter(Point cellPoint, string parameterName, string value)
         {
             this._cellPoint = cellPoint;
             this._parameterName = parameterName;

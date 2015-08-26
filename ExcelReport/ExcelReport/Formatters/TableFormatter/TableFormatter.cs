@@ -18,6 +18,7 @@ namespace ExcelReport
         private int _templateRowIndex;
         private IEnumerable<TSource> _dataSource;
         private List<TableColumnInfo<TSource>> _columnInfoList;
+        private ParameterDictionary _paramDic;
 
         #endregion 成员字段
 
@@ -38,6 +39,11 @@ namespace ExcelReport
             get { return _columnInfoList; }
         }
 
+        protected ParameterDictionary ParamDic
+        {
+            get { return _paramDic; }
+        }
+
         #endregion
 
         /// 构造函数
@@ -52,6 +58,21 @@ namespace ExcelReport
             if (null != columnInfos && columnInfos.Length > 0)
             {
                 _columnInfoList.AddRange(columnInfos);
+            }
+        }
+
+        public TableFormatter(ParameterDictionary parameterDictionary, string parameterName, IEnumerable<TSource> dataSource)
+            : this(0, dataSource)
+        {
+            _paramDic = parameterDictionary;
+            Parameter p = _paramDic[parameterName];
+            if (p == null)
+            {
+                throw new ApplicationException("模板中未定义参数:" + parameterName + "，无法创建TableFormatter！");
+            }
+            else
+            {
+                _templateRowIndex = p.CellPoint.X;
             }
         }
 
@@ -95,5 +116,17 @@ namespace ExcelReport
             _columnInfoList.Add(new TableColumnInfo<TSource>(columnIndex, dgSetValue));
         }
 
+        /// 添加列信息
+        /// <param name="parameter"></param>
+        /// <param name="dgSetValue"></param>
+        public TableFormatter<TSource> AddColumnInfo(string parameterName, Func<TSource, object> dgSetValue)
+        {
+            Parameter parameter = _paramDic[parameterName];
+            if (parameter != null)
+            {
+                _columnInfoList.Add(new TableColumnInfo<TSource>(parameter.CellPoint.Y, dgSetValue));
+            }
+            return this;
+        }
     }
 }

@@ -24,3 +24,16 @@ E:\MyFile\ExcelReport\ExcelReport\ExcelReport\bin\Debug\NPOI.OpenXml4Net.xml
 E:\MyFile\ExcelReport\ExcelReport\ExcelReport\obj\Debug\ExcelReport.csprojResolveAssemblyReference.cache
 E:\MyFile\ExcelReport\ExcelReport\ExcelReport\obj\Debug\ExcelReport.dll
 E:\MyFile\ExcelReport\ExcelReport\ExcelReport\obj\Debug\ExcelReport.pdb
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\ExcelReport.dll
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\ExcelReport.pdb
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\NPOI.dll
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\NPOI.OOXML.dll
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\NPOI.OpenXml4Net.dll
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\NPOI.OpenXmlFormats.dll
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\NPOI.xml
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\NPOI.OOXML.xml
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\bin\Debug\NPOI.OpenXml4Net.xml
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\obj\Debug\ExcelReport.dll
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\obj\Debug\ExcelReport.pdb
+E:\Repos\mysoft\ExcelReport\ExcelReport\ExcelReport\obj\Debug\ExcelReport.csprojResolveAssemblyReference.cache

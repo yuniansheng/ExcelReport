@@ -17,7 +17,7 @@ namespace ExcelReport
     internal static class IWorkbookExtend
     {
         /// 将workbook转换成二进制文件流
-        /// <param name="workbook"></param>
+        /// <param name="_workbook"></param>
         /// <returns></returns>
         public static byte[] SaveToBuffer(this IWorkbook workbook)
         {

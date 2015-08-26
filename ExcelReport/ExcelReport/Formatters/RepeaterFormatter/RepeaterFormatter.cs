@@ -18,6 +18,7 @@ namespace ExcelReport
         private Point _endTagCell;
         private IEnumerable<TSource> _dataSource;
         private List<RepeaterCellInfo<TSource>> _cellInfoList;
+        private ParameterDictionary _paramDic;
         #endregion
 
         #region 属性
@@ -40,6 +41,11 @@ namespace ExcelReport
         {
             get { return _cellInfoList; }
         }
+
+        protected ParameterDictionary ParamDic
+        {
+            get { return _paramDic; }
+        }
         #endregion
 
         /// 构造函数
@@ -57,6 +63,24 @@ namespace ExcelReport
             {
                 _cellInfoList.AddRange(cellInfos);
             }
+        }
+
+        public RepeaterFormatter(ParameterDictionary parameterDictionary, string startTagParameterName, string endTagParameterName, IEnumerable<TSource> dataSource)
+            : this(new Point(), new Point(), dataSource)
+        {
+            _paramDic = parameterDictionary;
+            Parameter startParam = _paramDic[startTagParameterName];
+            Parameter endParam = _paramDic[endTagParameterName];
+            if (startParam == null)
+            {
+                throw new ApplicationException("模板中未定义参数:" + startTagParameterName + "，无法创建TableFormatter！");
+            }
+            if (endParam == null)
+            {
+                throw new ApplicationException("模板中未定义参数:" + endTagParameterName + "，无法创建TableFormatter！");
+            }
+            _startTagCell = startParam.CellPoint;
+            _endTagCell = endParam.CellPoint;
         }
 
         /// 格式化操作
@@ -99,6 +123,16 @@ namespace ExcelReport
         public void AddCellInfo(Point cellPoint, Func<TSource, object> dgSetValue)
         {
             _cellInfoList.Add(new RepeaterCellInfo<TSource>(cellPoint, dgSetValue));
+        }
+
+        public RepeaterFormatter<TSource> AddCellInfo(string parameterName, Func<TSource, object> dgSetValue)
+        {
+            Parameter parameter = ParamDic[parameterName];
+            if (parameter != null)
+            {
+                _cellInfoList.Add(new RepeaterCellInfo<TSource>(parameter.CellPoint, dgSetValue));
+            }
+            return this;
         }
     }
 }

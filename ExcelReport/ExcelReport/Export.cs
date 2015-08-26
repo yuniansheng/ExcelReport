@@ -6,6 +6,7 @@
 
 */
 
+using NPOI.SS.UserModel;
 namespace ExcelReport
 {
     public static class Export
@@ -17,6 +18,11 @@ namespace ExcelReport
         public static byte[] ExportToBuffer(string templateFile, params SheetFormatterContainer[] containers)
         {
             var workbook = NPOIHelper.LoadWorkbook(templateFile);
+            return ExportToBuffer(workbook, containers);
+        }
+
+        public static byte[] ExportToBuffer(IWorkbook workbook, params SheetFormatterContainer[] containers)
+        {
             foreach (var container in containers)
             {
                 var sheet = workbook.GetSheet(container.SheetName);
